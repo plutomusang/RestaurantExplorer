@@ -1,28 +1,39 @@
-import React from 'react';
-import useCebuRestaurantData from '../../hooks/useCebuRestaurantData';
+import React, { useState } from 'react';
+import { RestaurantData } from '../../types/types';
 
-const apiKey =  process.env.REACT_APP_GOOGLE_MAPS_API_KEY || '';
-const location = '10.3157,123.8854'; // Latitude and longitude of Cebu
-const radius = 5000; // 5km radius
+interface RestaurantListProps {
+  loading: boolean;
+  restaurants: RestaurantData[];
+}
 
-const RestaurantList = () => {
-  const { restaurants, loading } = useCebuRestaurantData({
-    apiKey,
-    location,
-    radius,
-  });
+const RestaurantList: React.FC<RestaurantListProps> = ({ restaurants, loading }) => {
+  const [selectedRestaurant, setSelectedRestaurant] = useState<RestaurantData | null>(null);
+
+  const handleSelectRestaurant = (restaurant: RestaurantData) => {
+    setSelectedRestaurant(restaurant);
+  };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Loading ...</div>;
   }
 
   return (
     <div>
-      <ul>
-        {restaurants.map((restaurant) => (
-          <li key={restaurant.place_id}>{restaurant.name}</li>
+      <select onChange={(e) => handleSelectRestaurant(restaurants[Number(e.target.value)])}>
+        <option value="">Select a restaurant</option>
+        {restaurants.map((restaurant, index) => (
+          <option key={restaurant.place_id} value={index.toString()}>
+            {restaurant.name}
+          </option>
         ))}
-      </ul>
+      </select>
+      {selectedRestaurant && (
+        <div>
+          <h2>Selected Restaurant:</h2>
+          <p>Name: {selectedRestaurant.name}</p>
+          {/* Add more details here as needed */}
+        </div>
+      )}
     </div>
   );
 };
