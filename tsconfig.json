@@ -1,26 +1,21 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "target": "es5", // The target JavaScript version
+    "lib": ["dom", "dom.iterable", "esnext"], // TypeScript libraries
+    "allowJs": true, // Allow JavaScript files to be included
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "esModuleInterop": true, // Simplifies interoperability with CommonJS modules
+    "allowSyntheticDefaultImports": true, // Allow default imports from modules with no default export
+    "strict": true, // Enable strict mode
+    "forceConsistentCasingInFileNames": true, // Enforce consistent file name casing
+    "noFallthroughCasesInSwitch": true, // Report fallthrough cases in switch statements
+    "module": "esnext", // Specify the module system
+    "moduleResolution": "node", // Use Node.js-style module resolution
+    "resolveJsonModule": true, // Enable importing JSON files as modules
+    "isolatedModules": true, // Ensure each file is treated as an isolated module
+    "noEmit": true, // Do not emit compiled files (TypeScript only)
+    "jsx": "react" // Enable JSX support for React
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"], // Specify the source files to include
+  "types": ["node", "googlemaps"] // Include type declarations for Node.js
 }
