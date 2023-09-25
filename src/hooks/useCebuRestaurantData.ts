@@ -24,9 +24,9 @@ const useCebuRestaurantData = ({
 
   useEffect(() => {
     // Create the Google Places API request URL
-    const apiUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location}&radius=${radius}&type=restaurant&key=${apiKey}`;
+    const apiUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location}&radius=${radius}&type=restaurant&type=restaurant&key=${apiKey}`;
     
-    // Fetch restaurant data from Google Places API
+    // Fetch restaurant data from Google Places APIs
     axios
       .get(apiUrl, {
         timeout: 10000, // Set the timeout to 10 seconds (adjust as needed)

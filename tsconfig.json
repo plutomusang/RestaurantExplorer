@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5", // The target JavaScript version
+    "target": "es2015", // The target JavaScript version
     "lib": ["dom", "dom.iterable", "esnext"], // TypeScript libraries
     "allowJs": true, // Allow JavaScript files to be included
     "skipLibCheck": true, // Skip type checking of declaration files
@@ -14,7 +14,8 @@
     "resolveJsonModule": true, // Enable importing JSON files as modules
     "isolatedModules": true, // Ensure each file is treated as an isolated module
     "noEmit": true, // Do not emit compiled files (TypeScript only)
-    "jsx": "react" // Enable JSX support for React
+    "jsx": "react", // Enable JSX support for React
+    "downlevelIteration": true,
   },
   "include": ["src"], // Specify the source files to include
   "types": ["node", "googlemaps"] // Include type declarations for Node.js
