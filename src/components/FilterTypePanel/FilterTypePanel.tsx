@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { RestaurantData } from '../../types/types';
-
+import CheckBox from '../CheckBox/CheckBox';
 const CheckboxContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -41,17 +41,15 @@ const FilterTypePanel: React.FC<FilterTypePanelProps> = ({ restaurants, handleCl
 
     handleClick(filteredRestaurants);
   };
-
+  const handleCheckboxChange1 = (checked: boolean) => {
+  }
   return (
     <CheckboxContainer>
+  
       {uniqueTypes.map((type) => (
+
         <CheckboxItem key={type}>
-          <input
-            type="checkbox"
-            checked={filterHotelTypes.includes(type)}
-            onChange={() => handleCheckboxChange(type)}
-          />
-          <label>{type}</label>
+         <CheckBox label={type} onChange={() => handleCheckboxChange(type)} checked={filterHotelTypes.includes(type)}/>
         </CheckboxItem>
       ))}
     </CheckboxContainer>
